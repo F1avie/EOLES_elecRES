@@ -15,7 +15,7 @@ Github link of Previous works:
 **dossier_local /</br>
 &emsp; &emsp;├─inputs/ </br>
 &emsp; &emsp;├─ model/ </br>
-&emsp; &emsp; ├─ output/ </br>
-&emsp; &emsp;├─ simulations </br>
-&emsp; &emsp;├─ Projet_ENR_FF. </br>
+&emsp; &emsp;├─ output/ </br>
+&emsp; &emsp;├─ simulations/ </br>
+&emsp; &emsp;├─ Projet_ENR_FF.ipynb </br>
 
