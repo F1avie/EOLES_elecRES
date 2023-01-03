@@ -1,0 +1,97 @@
+---
+title: "projetEOLES"
+output: html_document
+date: '2023-01-02'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r cars}
+getwd()
+setwd("C:/Users/flavi/OneDrive/Documents/5A/projet/EOLES_elecRES")
+ 
+```
+
+```{r pressure}
+my.data <- read.table("C:/Users/flavi/OneDrive/Documents/5A/projet/EOLES_elecRES/data_X_Y.csv", sep = ",", header = TRUE) 
+print(my.data)
+xA <- c(t(my.data))
+```
+
+```{r pressure}
+library(TSA)
+period <- periodogram(my.data$Stored24methanation) #one unique max 
+
+order(period$spec,decreasing=TRUE)
+
+period$freq[18] # Top frequencies at 18
+
+print(1/period$freq[18]) #periods
+
+```
+
+```{r pressure}
+
+# ===================
+# Harmonic regression
+# ===================
+x <- ts(my.data$Stored24methanation)
+plot(x,
+     main="methanation",
+     ylab="%")
+print(2)
+print(2**2)
+t <- my.data$days
+
+mod.H <- lm(x ~ t + I(sin(2*pi*t*1/365)) + I(cos(2*pi*t*1/365)) ) # + I(sin(2*pi*t*period$freq[19])) + I(cos(2*pi*t*period$freq[19])))
+summary(mod.H)
+
+```
+
+```{r pressure}
+# Fitted values and residuals
+
+x.fit <- mod.H$fitted.values
+x.res <- mod.H$residuals
+
+x.fit <- ts(x.fit,start=start(x),frequency=frequency(x))
+x.res <- ts(x.res,start=start(x),frequency=frequency(x))
+plot(x,
+     main="methanation",
+     ylab="%")
+points(x.fit,col="red",type="o",pch=16,cex=0.5)
+
+legend("topleft",
+       title="Harmonic regression",
+       c("Observed","Fitted"),
+       col=c("black","red"),
+       lty="solid",
+       bty="n")
+```
+
+
+
+```{r pressure}
+plot(x.res,
+     main="Residuals: harmonic regression ",
+     ylab="Residuals")
+abline(h=mean(x.res),col="blue")
+abline(h=c(mean(x.res)-sd(x.res),mean(x.res)+sd(x.res)),col="blue",lty="dotted")
+```
+
+
+```{r pressure}
+library(forecast)
+Acf(x.res,lag.max=12) # linear trend + WN
+Pacf(x.res,lag.max=12)
+```
+
+
+```{r pressure}
+modres <- lm(x.res ~ t)
+summary(modres)
+```
