@@ -1,4 +1,5 @@
-# Projet 5A INSA
+# Project 5A 
+## Adaptive storage strategy in a low energy mix
 
 Florian Brosset & Flavie Kolb
 
@@ -9,7 +10,7 @@ Github link of Previous works:
 - https://github.com/sebastienINSA/Projet5A_ENR
 
 
-# Organisation des fichiers 
+# File 
 
 /</br> 
 **dossier_local /</br>
