@@ -4,7 +4,9 @@
 Florian Brosset & Flavie Kolb
 
 Data_Pretraitement: Traite les données générées avec EOLES pour être utilisées par le réseaux de neurones
+
 Apprentissage: Modèle de régression
+
 Aprrentissage-Niveaux: Modèle de "classification" des niveaux de chargement/déchargement et transformation de ces classes en niveaux réels
 
 Github link of P. Quirion ressources: https://github.com/BehrangShirizadeh/EOLES_elecRES
