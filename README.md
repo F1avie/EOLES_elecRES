@@ -18,9 +18,8 @@ Github link of Previous works:
 
 # File 
 
-/</br> 
-dossier_local /</br>
-&emsp; &emsp;├─ inputs/ </br>
-&emsp; &emsp;├─ simulations/ </br>
-&emsp; &emsp;├─ Projet_ENR_FF.ipynb </br>
+Data_Pretraitement: Traite les données générées avec EOLES pour être utilisées par le réseaux de neurones
 
+Apprentissage: Modèle de régression
+
+Aprrentissage-Niveaux: Modèle de "classification" des niveaux de chargement/déchargement et transformation de ces classes en niveaux réels
